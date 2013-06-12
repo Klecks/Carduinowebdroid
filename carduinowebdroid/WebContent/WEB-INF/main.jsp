@@ -166,7 +166,7 @@
 
 
 <script>
-	var ws = new WebSocket("ws://localhost:8080/carduinodroid/chat/ChatServlet");
+/* 	var ws = new WebSocket("ws://localhost:8080/carduinodroid/chat/ChatServlet");
 	ws.onopen = function(){
 	};
 	ws.onmessage = function(message){
@@ -178,7 +178,7 @@
 	}
 	function closeConnect(){
 		ws.close();
-	}
+	} */
 </script>
 
 </head>
