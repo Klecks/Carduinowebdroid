@@ -38,132 +38,148 @@
 </script>
 
 <script>
-$(document).ready( function() {
-	var elem = $("#main_chat_chars");
-	$("#main_chat_textinput").limiter(256, elem);
-}); 
+	$(document).ready( function() {
+		var elem = $("#main_chat_chars");
+		$("#main_chat_textinput").limiter(256, elem);
+	}); 
 </script>
 
 <script>
-$(function() {
-	var stream_width=60;
-	$( "#main_chat_speak" ).button();
-	$( "#main_close_left" ).button().click(function() {
-		$( "#main_table_sidebar_left" ).hide();
-		stream_width+=20;
-		$( "#main_table_stream").css("width", stream_width + "%");
-		$( "#main_close_left" ).hide();
-		$( "#main_open_left" ).show();
+	$(function() {
+		var stream_width=60;
+		$( "#main_chat_speak" ).button();
+		$( "#main_close_left" ).button().click(function() {
+			$( "#main_table_sidebar_left" ).hide();
+			stream_width+=20;
+			$( "#main_table_stream").css("width", stream_width + "%");
+			$( "#main_close_left" ).hide();
+			$( "#main_open_left" ).show();
+		});
+		$( "#main_open_left" ).button().click(function() {
+			$( "#main_table_sidebar_left" ).show();
+			stream_width-=20;
+			$( "#main_table_stream").css("width", stream_width + "%");
+			$( "#main_close_left" ).show();
+			$( "#main_open_left" ).hide();
+		});
+			$( "#main_close_right" ).button().click(function() {
+			$( "#main_table_sidebar_right" ).hide();
+			stream_width+=20;
+			$( "#main_table_stream").css("width", stream_width + "%");
+			$( "#main_close_right" ).hide();
+			$( "#main_open_right" ).show();
+		});
+		$( "#main_open_right" ).button().click(function() {
+			$( "#main_table_sidebar_right" ).show();
+			stream_width-=20;
+			$( "#main_table_stream").css("width", stream_width + "%");
+			$( "#main_close_right" ).show();
+			$( "#main_open_right" ).hide();
+		});
 	});
-	$( "#main_open_left" ).button().click(function() {
-		$( "#main_table_sidebar_left" ).show();
-		stream_width-=20;
-		$( "#main_table_stream").css("width", stream_width + "%");
-		$( "#main_close_left" ).show();
-		$( "#main_open_left" ).hide();
-	});
-		$( "#main_close_right" ).button().click(function() {
-		$( "#main_table_sidebar_right" ).hide();
-		stream_width+=20;
-		$( "#main_table_stream").css("width", stream_width + "%");
-		$( "#main_close_right" ).hide();
-		$( "#main_open_right" ).show();
-	});
-	$( "#main_open_right" ).button().click(function() {
-		$( "#main_table_sidebar_right" ).show();
-		stream_width-=20;
-		$( "#main_table_stream").css("width", stream_width + "%");
-		$( "#main_close_right" ).show();
-		$( "#main_open_right" ).hide();
-	});
-});
 </script>
 
 <script>
-$(function() {
-	$( ".slider-vertical" ).slider({
-		orientation: "vertical",
-		range: "min",
-		min: 0,
-		max: 100,
-		value: 60,
-		slide: function( event, ui ) {
-			$( "#amount" ).val( ui.value );
-		}
+	$(function() {
+		$( ".slider-vertical" ).slider({
+			orientation: "vertical",
+			range: "min",
+			min: 0,
+			max: 100,
+			value: 60,
+			slide: function( event, ui ) {
+				$( "#amount" ).val( ui.value );
+			}
+		});
+		$( "#amount" ).val( $( ".slider-vertical" ).slider( "value" ) );
 	});
-	$( "#amount" ).val( $( ".slider-vertical" ).slider( "value" ) );
-});
+	</script>
+	<script>
+	$(function() {
+	    $( "input[type=submit], button,#mainqsubmit" ).button()
+	});
 </script>
 <script>
-$(function() {
-    $( "input[type=submit], button,#mainqsubmit" ).button()
-});
-</script>
-<script>
-$(document).keydown(function(e){
-    
-
-    if($("#main_chat_textinput").is(":focus")){
-        true;
-    } else {
-        if (e.keyCode == 72) { 
-           $('#main_gadget_button_horn').mousedown();
-           return false;
-        }
-        if (e.keyCode == 76) { 
-           $('#main_gadget_button_light').mousedown();
-           return false;
-        }
-        if (e.keyCode == 37) { 
-            $('#main_steering_button_left').mousedown();
-            return false;
-        }
-        if (e.keyCode == 38) { 
-           $('#main_steering_button_up').mousedown();           
-           return false;
-        }
-        if (e.keyCode == 39) { 
-           $('#main_steering_button_right').mousedown();
-           return false;
-        }
-        if (e.keyCode == 40) { 
-           $('#main_steering_button_down').mousedown();
-           return false;
-        }
-    }
-    
-});
+	$(document).keydown(function(e){
+	    
+	
+	    if($("#main_chat_textinput").is(":focus")){
+	        true;
+	    } else {
+	        if (e.keyCode == 72) { 
+	           $('#main_gadget_button_horn').mousedown();
+	           return false;
+	        }
+	        if (e.keyCode == 76) { 
+	           $('#main_gadget_button_light').mousedown();
+	           return false;
+	        }
+	        if (e.keyCode == 37) { 
+	            $('#main_steering_button_left').mousedown();
+	            return false;
+	        }
+	        if (e.keyCode == 38) { 
+	           $('#main_steering_button_up').mousedown();           
+	           return false;
+	        }
+	        if (e.keyCode == 39) { 
+	           $('#main_steering_button_right').mousedown();
+	           return false;
+	        }
+	        if (e.keyCode == 40) { 
+	           $('#main_steering_button_down').mousedown();
+	           return false;
+	        }
+	    }
+	    
+	});
 </script>
 
 <script>
-$(document).keyup(function(e){
-    if (e.keyCode == 37) { 
-       $('#main_steering_button_left').removeClass("ui-state-active");
-       return false;
-    }
-    if (e.keyCode == 38) { 
-       $('#main_steering_button_up').removeClass("ui-state-active");
-	   return false;
-    }
-    if (e.keyCode == 39) { 
-       $('#main_steering_button_right').removeClass("ui-state-active");
-       return false;
-    }
-    if (e.keyCode == 40) { 
-       $('#main_steering_button_down').removeClass("ui-state-active");
-       return false;
-    }
-    if (e.keyCode == 72) { 
-       $('#main_gadget_button_horn').removeClass("ui-state-active");
-       return false;
-    }
-    if (e.keyCode == 76) { 
-       $('#main_gadget_button_light').removeClass("ui-state-active");
-       return false;
-    }
-});
+	$(document).keyup(function(e){
+	    if (e.keyCode == 37) { 
+	       $('#main_steering_button_left').removeClass("ui-state-active");
+	       return false;
+	    }
+	    if (e.keyCode == 38) { 
+	       $('#main_steering_button_up').removeClass("ui-state-active");
+		   return false;
+	    }
+	    if (e.keyCode == 39) { 
+	       $('#main_steering_button_right').removeClass("ui-state-active");
+	       return false;
+	    }
+	    if (e.keyCode == 40) { 
+	       $('#main_steering_button_down').removeClass("ui-state-active");
+	       return false;
+	    }
+	    if (e.keyCode == 72) { 
+	       $('#main_gadget_button_horn').removeClass("ui-state-active");
+	       return false;
+	    }
+	    if (e.keyCode == 76) { 
+	       $('#main_gadget_button_light').removeClass("ui-state-active");
+	       return false;
+	    }
+	});
 </script>
 
+
+<script>
+	var ws = new WebSocket("ws://localhost:8080/carduinodroid/chat/ChatServlet");
+	ws.onopen = function(){
+	};
+	ws.onmessage = function(message){
+		document.getElementById("main_chat").textContent += message.data + "\n";
+	};
+	function postToServer(){
+		ws.send(document.getElementById("main_chat_textinput").value);
+		document.getElementById("main_chat_textinput").value = "";
+	}
+	function closeConnect(){
+		ws.close();
+	}
+</script>
 
 </head>
 <body>
@@ -175,7 +191,7 @@ $(document).keyup(function(e){
         		<div id="main_chat">Chat</div>
           	  	<textarea type="text" name="chat" id="main_chat_textinput" maxlength="256"></textarea>
            		<div id="main_chat_chars">256</div>
-            	<button id="main_chat_speak">Chat</button>
+            	<button id="main_chat_speak" onClick="postToServer">Chat</button>
           	</div>
         </td>
         <td><button id="main_close_left" class="ui-icon ui-icon-triangle-1-w"></button> <button id="main_open_left" class="ui-icon ui-icon-triangle-1-e"></button></td>
